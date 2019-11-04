@@ -1,0 +1,25 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'Main'
+    }
+}
+
+
+run {
+    standardInput = System.in
+}
+
+mainClassName = 'Main'
