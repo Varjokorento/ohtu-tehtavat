@@ -6,11 +6,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Kauppa kauppa = new Kauppa(
-                Varasto.getInstance(),
-                Pankki.getInstance(),
-                Viitegeneraattori.getInstance()
-        );
+        Viitegeneraattori viitegen = new ViitegeneraattoriImpl();
+        Kirjanpito kirjanpito      = new KirjanpitoImpl();
+        Varasto varasto            = new VarastoImpl(kirjanpito);
+        Pankki pankki              = new PankkiImpl(kirjanpito);
+        Kauppa kauppa              = new Kauppa(varasto, pankki, viitegen);
 
         // kauppa hoitaa yhden asiakkaan kerrallaan seuraavaan tapaan:
         kauppa.aloitaAsiointi();
