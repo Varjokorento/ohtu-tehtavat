@@ -1,0 +1,32 @@
+CFeature: As a user I want to be able to increase the counter value
+
+`  Scenario: Increment once       [90m# src/test/resources/ohtu/increasingCounter.feature:3[0m
+^    [32mGiven [0m[32mCounter is initialized[0m [90m# Stepdefs.counterIsInitialized()[0m
+Y    [32mWhen [0m[32mit is incremented[0m       [90m# Stepdefs.itIsIncremented()[0m
+n    [32mThen [0m[32mthe value should be [0m[32m[1m1[0m   [90m# Stepdefs.theValueShouldBe(Integer)[0m
+
+`  Scenario: Increment by many    [90m# src/test/resources/ohtu/increasingCounter.feature:8[0m
+^    [32mGiven [0m[32mCounter is initialized[0m [90m# Stepdefs.counterIsInitialized()[0m
+o    [32mWhen [0m[32mit is incremented by [0m[32m[1m5[0m  [90m# Stepdefs.itIsIncrementedBy(Integer)[0m
+n    [32mThen [0m[32mthe value should be [0m[32m[1m5[0m   [90m# Stepdefs.theValueShouldBe(Integer)[0m
+
+a  Scenario: Increment many times [90m# src/test/resources/ohtu/increasingCounter.feature:13[0m
+^    [32mGiven [0m[32mCounter is initialized[0m [90m# Stepdefs.counterIsInitialized()[0m
+Y    [32mWhen [0m[32mit is incremented[0m       [90m# Stepdefs.itIsIncremented()[0m
+Y    [32mAnd [0m[32mit is incremented[0m        [90m# Stepdefs.itIsIncremented()[0m
+Y    [32mAnd [0m[32mit is incremented[0m        [90m# Stepdefs.itIsIncremented()[0m
+n    [32mThen [0m[32mthe value should be [0m[32m[1m3[0m   [90m# Stepdefs.theValueShouldBe(Integer)[0m
+
+FFeature: As a user I want to be able to set the counter to value zero
+
+g  Scenario: Resetting after one increment [90m# src/test/resources/ohtu/resetingCounter.feature:3[0m
+g    [32mGiven [0m[32mCounter is initialized[0m          [90m# Stepdefs.counterIsInitialized()[0m
+b    [32mWhen [0m[32mit is incremented[0m                [90m# Stepdefs.itIsIncremented()[0m
+X    [32mAnd [0m[32mit is reset[0m                       [90m# Stepdefs.reset()[0m
+w    [32mThen [0m[32mthe value should be [0m[32m[1m0[0m            [90m# Stepdefs.theValueShouldBe(Integer)[0m
+
+z  Scenario: Resetting after incrementing with several values [90m# src/test/resources/ohtu/resetingCounter.feature:9[0m
+z    [32mGiven [0m[32mCounter is initialized[0m                             [90m# Stepdefs.counterIsInitialized()[0m
+‹    [32mWhen [0m[32mit is incremented by [0m[32m[1m5[0m                              [90m# Stepdefs.itIsIncrementedBy(Integer)[0m
+k    [32mAnd [0m[32mit is reset[0m                                          [90m# Stepdefs.reset()[0m
+Š    [32mThen [0m[32mthe value should be [0m[32m[1m0[0m                               [90m# Stepdefs.theValueShouldBe(Integer)[0m
