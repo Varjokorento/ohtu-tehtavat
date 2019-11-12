@@ -1,5 +1,10 @@
+plugins {
+    id 'com.github.johnrengelman.shadow' version '5.1.0'
+}
+
 apply plugin: 'java'
 apply plugin: 'application'
+
 
 mainClassName = 'ohtu.Main'
 
