@@ -48,6 +48,15 @@ public class Stepdefs {
     @Then("system will respond with {string}")
     public void systemWillRespondWith(String expectedOutput) {
         assertTrue(io.getPrints().contains(expectedOutput));
-    }    
+    }
 
+    @Given("user {string} with password {string} is created")
+    public void userWithPasswordIsCreated(String arg0, String arg1) {
+        inputLines.add("new");
+        inputLines.add(arg0);
+        inputLines.add(arg1);
+        io = new StubIO(inputLines);
+        app = new App(io, auth);
+        app.run();
+    }
 }
