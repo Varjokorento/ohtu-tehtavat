@@ -4,6 +4,8 @@ import ohtu.data_access.UserDao;
 import ohtu.domain.User;
 import ohtu.util.CreationStatus;
 
+import java.util.regex.Pattern;
+
 public class AuthenticationService {
 
     private UserDao userDao;
@@ -34,11 +36,28 @@ public class AuthenticationService {
             status.addError("username should have at least 3 characters");
         }
 
+        if (password.length() < 8) {
+            status.addError("password should have at least 8 characters");
+        }
+
+        if (!password.equals(passwordConfirmation)) {
+            status.addError("password and password confirmation do not match");
+        }
+
+        if (!stringContainsNumber(password)) {
+            status.addError("password should have at least one digit");
+        }
+
         if (status.isOk()) {
             userDao.add(new User(username, password));
         }
         
         return status;
+    }
+
+    private boolean stringContainsNumber( String s )
+    {
+        return Pattern.compile( "[0-9]" ).matcher( s ).find();
     }
 
 }
