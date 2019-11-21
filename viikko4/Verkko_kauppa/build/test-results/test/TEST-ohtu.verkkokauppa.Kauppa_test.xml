@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ohtu.verkkokauppa.Kauppa_test" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-11-21T18:28:19" hostname="Kalles-MBP" time="0.416">
+  <properties/>
+  <testcase name="aloitaAsiointi" classname="ohtu.verkkokauppa.Kauppa_test" time="0.416"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
