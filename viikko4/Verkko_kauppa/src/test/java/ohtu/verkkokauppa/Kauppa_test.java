@@ -114,4 +114,22 @@ public class Kauppa_test {
 
         verify(pankki).tilisiirto("pekka", 42,"12345", "33333-44455",5);
     }
+
+    @Test
+    public void poistaKoristaPoistaaKorista() {
+        Tuote tuote = new Tuote(1, "maito", 5);
+        when(viite.uusi()).thenReturn(42);
+
+        when(varasto.saldo(1)).thenReturn(10);
+        when(varasto.haeTuote(1)).thenReturn(tuote);
+
+
+        Kauppa k = new Kauppa(varasto, pankki, viite);
+
+        k.aloitaAsiointi();
+        k.lisaaKoriin(1);
+        k.poistaKorista(1);
+        verify(varasto, times(2)).haeTuote(1);
+        verify(varasto).palautaVarastoon(tuote);
+    }
 }
