@@ -2,6 +2,7 @@ package ohtu;
 
 import ohtu.command.Komento;
 import ohtu.command.operations.Miinus;
+import ohtu.command.operations.Nollaa;
 import ohtu.command.operations.Summa;
 
 import java.awt.event.ActionEvent;
@@ -19,6 +20,7 @@ public class Tapahtumankuuntelija implements ActionListener {
     private JTextField syotekentta;
     private Sovelluslogiikka sovellus;
     private HashMap<JButton, Komento> komennot;
+    private Komento edellinen;
  
     public Tapahtumankuuntelija(JButton plus, JButton miinus, JButton nollaa, JButton undo, JTextField tuloskentta, JTextField syotekentta) {
         this.plus = plus;
@@ -31,18 +33,20 @@ public class Tapahtumankuuntelija implements ActionListener {
         komennot = new HashMap<>();
         komennot.put(plus, new Summa(tuloskentta, syotekentta, nollaa, undo, sovellus));
         komennot.put(miinus, new Miinus(tuloskentta, syotekentta, nollaa, undo, sovellus));
+        komennot.put(nollaa, new Nollaa(tuloskentta, syotekentta, nollaa, undo, sovellus));
 
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
 
-        if (ae.getSource() != undo && ae.getSource() != nollaa)  {
+        if (ae.getSource() != undo)  {
+            edellinen = komennot.get(ae.getSource());
             komennot.get(ae.getSource()).suorita();
-        } else if (ae.getSource() == nollaa) {
-            sovellus.nollaa();
         } else {
             System.out.println("undo pressed");
+            komennot.get(edellinen).peru();
+            edellinen = null;
         }
     }
  

@@ -36,4 +36,9 @@ public class Summa extends Komento {
         System.out.println(laskunTulos);
         undo.setEnabled(true);
     }
+
+    @Override
+    public void peru(Komento edellinen) {
+        edellinen.suorita();
+    }
 }

@@ -14,4 +14,11 @@ public class Tuntematon extends Komento {
     public void suorita() {
 
     }
+
+    @Override
+    public void peru(Komento edellinen) {
+
+    }
+
+
 }
