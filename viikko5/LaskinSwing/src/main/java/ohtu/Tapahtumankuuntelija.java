@@ -1,6 +1,8 @@
 package ohtu;
 
 import ohtu.command.Komento;
+import ohtu.command.operations.Miinus;
+import ohtu.command.operations.Summa;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,7 +18,7 @@ public class Tapahtumankuuntelija implements ActionListener {
     private JTextField tuloskentta;
     private JTextField syotekentta;
     private Sovelluslogiikka sovellus;
-    private HashMap<String, Komento> komennot;
+    private HashMap<JButton, Komento> komennot;
  
     public Tapahtumankuuntelija(JButton plus, JButton miinus, JButton nollaa, JButton undo, JTextField tuloskentta, JTextField syotekentta) {
         this.plus = plus;
@@ -27,41 +29,21 @@ public class Tapahtumankuuntelija implements ActionListener {
         this.syotekentta = syotekentta;
         this.sovellus = new Sovelluslogiikka();
         komennot = new HashMap<>();
+        komennot.put(plus, new Summa(tuloskentta, syotekentta, nollaa, undo, sovellus));
+        komennot.put(miinus, new Miinus(tuloskentta, syotekentta, nollaa, undo, sovellus));
+
     }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
 
-
-        int arvo = 0;
-
-        try {
-            arvo = Integer.parseInt(syotekentta.getText());
-        } catch (Exception e) {
-        }
-
-
-
-        if (ae.getSource() == plus) {
-            sovellus.plus(arvo);
-        } else if (ae.getSource() == miinus) {
-            sovellus.miinus(arvo);
+        if (ae.getSource() != undo && ae.getSource() != nollaa)  {
+            komennot.get(ae.getSource()).suorita();
         } else if (ae.getSource() == nollaa) {
             sovellus.nollaa();
         } else {
             System.out.println("undo pressed");
         }
-
-        int laskunTulos = sovellus.tulos();
-
-        syotekentta.setText("");
-        tuloskentta.setText("" + laskunTulos);
-        if ( laskunTulos==0) {
-            nollaa.setEnabled(false);
-        } else {
-            nollaa.setEnabled(true);
-        }
-        undo.setEnabled(true);
     }
  
 }
