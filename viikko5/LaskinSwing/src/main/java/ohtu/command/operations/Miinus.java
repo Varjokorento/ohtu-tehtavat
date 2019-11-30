@@ -6,6 +6,7 @@ import ohtu.command.Komento;
 import javax.swing.*;
 
 public class Miinus extends Komento {
+    private int prevValue;
 
     public Miinus(JTextField tuloskentta, JTextField syotekentta, JButton nollaa, JButton undo, Sovelluslogiikka sovelluslogiikka) {
         super(tuloskentta, syotekentta, nollaa, undo, sovelluslogiikka);
@@ -13,13 +14,9 @@ public class Miinus extends Komento {
 
     @Override
     public void suorita() {
-        System.out.println(syotekentta.getText());
+        prevValue = Integer.valueOf(tuloskentta.getText());
         int arvo = 0;
-        try {
-            arvo = Integer.parseInt(syotekentta.getText());
-        } catch (Exception e) {
-        }
-
+        arvo = Integer.parseInt(syotekentta.getText());
         sovelluslogiikka.miinus(arvo);
 
         int laskunTulos = sovelluslogiikka.tulos();
@@ -35,9 +32,9 @@ public class Miinus extends Komento {
     }
 
     @Override
-    public void peru(Komento edellinen) {
-        System.out.println("here");
-        edellinen.suorita();
+    public void peru() {
+        syotekentta.setText("");
+        tuloskentta.setText("" +prevValue);
     }
 
 

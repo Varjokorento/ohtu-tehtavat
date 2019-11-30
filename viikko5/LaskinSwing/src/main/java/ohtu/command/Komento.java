@@ -11,6 +11,7 @@ public abstract class Komento {
     protected JButton nollaa;
     protected JButton undo;
     protected Sovelluslogiikka sovelluslogiikka;
+    private int edellinen;
 
     public Komento(JTextField tuloskentta, JTextField syotekentta, JButton nollaa, JButton undo, Sovelluslogiikka sovelluslogiikka) {
         this.tuloskentta = tuloskentta;
@@ -26,5 +27,5 @@ public abstract class Komento {
 
     public abstract void suorita();
 
-    public abstract void peru(Komento edellinen);
+    public abstract void peru();
 }

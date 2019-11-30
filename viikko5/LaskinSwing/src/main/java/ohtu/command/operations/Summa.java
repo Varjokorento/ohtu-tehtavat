@@ -7,13 +7,15 @@ import javax.swing.*;
 
 public class Summa extends Komento {
 
+    private int prevValue;
+
     public Summa(JTextField tuloskentta, JTextField syotekentta, JButton nollaa, JButton undo, Sovelluslogiikka sovelluslogiikka) {
         super(tuloskentta, syotekentta, nollaa, undo, sovelluslogiikka);
     }
 
     @Override
     public void suorita() {
-
+        prevValue = Integer.parseInt(tuloskentta.getText());
         int arvo = 0;
         try {
             arvo = Integer.parseInt(syotekentta.getText());
@@ -38,7 +40,8 @@ public class Summa extends Komento {
     }
 
     @Override
-    public void peru(Komento edellinen) {
-        edellinen.suorita();
+    public void peru() {
+        syotekentta.setText("");
+        tuloskentta.setText("" +prevValue);
     }
 }

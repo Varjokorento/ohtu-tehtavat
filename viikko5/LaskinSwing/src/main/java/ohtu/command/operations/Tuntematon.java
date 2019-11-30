@@ -16,7 +16,7 @@ public class Tuntematon extends Komento {
     }
 
     @Override
-    public void peru(Komento edellinen) {
+    public void peru() {
 
     }
 

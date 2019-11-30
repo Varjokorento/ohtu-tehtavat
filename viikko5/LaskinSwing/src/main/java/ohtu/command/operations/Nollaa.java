@@ -6,7 +6,7 @@ import ohtu.command.Komento;
 import javax.swing.*;
 
 public class Nollaa extends Komento {
-
+    private int prevValue;
 
     public Nollaa(JTextField tuloskentta, JTextField syotekentta, JButton nollaa, JButton undo, Sovelluslogiikka sovelluslogiikka) {
         super(tuloskentta, syotekentta, nollaa, undo, sovelluslogiikka);
@@ -14,7 +14,7 @@ public class Nollaa extends Komento {
 
     @Override
     public void suorita() {
-
+        prevValue = Integer.valueOf(tuloskentta.getText());
         sovelluslogiikka.nollaa();
 
         int laskunTulos = sovelluslogiikka.tulos();
@@ -30,9 +30,8 @@ public class Nollaa extends Komento {
     }
 
     @Override
-    public void peru(Komento edellinen) {
-
-        System.out.println("here2");
-        edellinen.suorita();
+    public void peru() {
+        syotekentta.setText("");
+        tuloskentta.setText("" + prevValue);
     }
 }

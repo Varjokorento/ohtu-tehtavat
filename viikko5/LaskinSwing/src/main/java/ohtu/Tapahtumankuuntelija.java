@@ -41,12 +41,13 @@ public class Tapahtumankuuntelija implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
 
         if (ae.getSource() != undo)  {
-            edellinen = komennot.get(ae.getSource());
             komennot.get(ae.getSource()).suorita();
+            edellinen = komennot.get(ae.getSource());
         } else {
-            System.out.println("undo pressed");
-            komennot.get(edellinen).peru();
-            edellinen = null;
+            if (edellinen != null) {
+                edellinen.peru();
+                edellinen = null;
+            }
         }
     }
  
