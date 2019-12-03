@@ -20,7 +20,6 @@ public class HasFewerThan implements Matcher {
             Method method = p.getClass().getMethod(fieldName);
             int playersValue = (Integer)method.invoke(p);
             return playersValue<value;
-
         } catch (Exception ex) {
             System.out.println(ex);
             throw new IllegalStateException("Player does not have field "+fieldName.substring(3, fieldName.length()).toLowerCase());
