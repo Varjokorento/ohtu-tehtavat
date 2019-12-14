@@ -1,4 +1,4 @@
-package ohtu.kivipaperisakset;
+package ohtu.kivipaperisakset.pelit;
 
 public abstract class KPS {
 
@@ -6,5 +6,5 @@ public abstract class KPS {
         return "k".equals(siirto) || "p".equals(siirto) || "s".equals(siirto);
     }
 
-    protected abstract void pelaa();
+    public abstract void pelaa();
 }

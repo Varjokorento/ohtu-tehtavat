@@ -1,9 +1,11 @@
 
-package ohtu.kivipaperisakset;
+package ohtu.kivipaperisakset.tekoalyt;
 
 // "Muistava tekoäly"
 
-public class TekoalyParannettu {
+import ohtu.kivipaperisakset.tekoalyt.TekoalyInterface;
+
+public class TekoalyParannettu implements TekoalyInterface {
   private String[] muisti;
   private int vapaaMuistiIndeksi;
 

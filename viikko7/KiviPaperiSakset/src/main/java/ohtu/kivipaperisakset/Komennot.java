@@ -1,5 +1,7 @@
 package ohtu.kivipaperisakset;
 
+import ohtu.kivipaperisakset.pelit.*;
+
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -10,9 +12,9 @@ public class Komennot {
 
     public static void lueKomento() {
         HashMap<String, KPS> gameMap = new HashMap<>();
-        gameMap.put("a", new KPSPelaajaVsPelaaja());
-        gameMap.put("b", new KPSTekoaly());
-        gameMap.put("c", new KPSParempiTekoaly());
+        gameMap.put("a", KPSFactory.getPelaajaVPelaaja());
+        gameMap.put("b", KPSFactory.getTekoaly());
+        gameMap.put("c", KPSFactory.getParempiTekoaly());
         while (true) {
             System.out.println("\nValitse pelataanko"
                     + "\n (a) ihmistä vastaan "

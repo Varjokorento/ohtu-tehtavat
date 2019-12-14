@@ -1,28 +1,26 @@
-package ohtu.kivipaperisakset;
+package ohtu.kivipaperisakset.pelit;
+
+import ohtu.kivipaperisakset.Tuomari;
+import ohtu.kivipaperisakset.pelit.KPS;
 
 import java.util.Scanner;
 
-import java.util.Scanner;
-
-// Kivi-Paperi-Sakset, jossa voidaan valita pelataanko vastustajaa
-// vastaan vai ei
-public class KPSParempiTekoaly extends KPS{
+public class KPSPelaajaVsPelaaja extends KPS {
 
     private static final Scanner scanner = new Scanner(System.in);
+
+    KPSPelaajaVsPelaaja() {
+        //
+    }
 
     @Override
     public void pelaa() {
         Tuomari tuomari = new Tuomari();
-        TekoalyParannettu tekoaly = new TekoalyParannettu(20);
 
         System.out.print("Ensimmäisen pelaajan siirto: ");
         String ekanSiirto = scanner.nextLine();
-        String tokanSiirto;
-
-
-        tokanSiirto = tekoaly.annaSiirto();
-        System.out.println("Tietokone valitsi: " + tokanSiirto);
-
+        System.out.print("Toisen pelaajan siirto: ");
+        String tokanSiirto = scanner.nextLine();
 
         while (onkoOkSiirto(ekanSiirto) && onkoOkSiirto(tokanSiirto)) {
             tuomari.kirjaaSiirto(ekanSiirto, tokanSiirto);
@@ -31,11 +29,9 @@ public class KPSParempiTekoaly extends KPS{
 
             System.out.print("Ensimmäisen pelaajan siirto: ");
             ekanSiirto = scanner.nextLine();
-
-            tokanSiirto = tekoaly.annaSiirto();
-            System.out.println("Tietokone valitsi: " + tokanSiirto);
-            tekoaly.asetaSiirto(ekanSiirto);
-
+            
+            System.out.print("Toisen pelaajan siirto: ");
+            tokanSiirto = scanner.nextLine();
         }
 
         System.out.println();

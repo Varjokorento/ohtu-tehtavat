@@ -1,8 +1,10 @@
-package ohtu.kivipaperisakset;
+package ohtu.kivipaperisakset.tekoalyt;
 
-public class Tekoaly {
+import ohtu.kivipaperisakset.tekoalyt.TekoalyInterface;
 
-    int siirto;
+public class Tekoaly implements TekoalyInterface {
+
+    private int siirto;
 
     public Tekoaly() {
         siirto = 0;
@@ -21,7 +23,7 @@ public class Tekoaly {
         }
     }
 
-    void asetaSiirto(String ekanSiirto) {
+    public void asetaSiirto(String ekanSiirto) {
         // ei tehdä mitään 
     }
 }
