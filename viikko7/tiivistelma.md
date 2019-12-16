@@ -3,7 +3,9 @@
 Lauri Suomalaisen kandidaatintyö käsittelee ohjelmistotuotantomenetelmien kehittymistä 1950-luvulta nykypäivään.
 Jokaisen kohdalla työssä vastataan seuraaviin kysymyksiin: Mistä ohjelmistotuotantomenetelmässä oli kyse? Miksi kyseistä
 menetelmää käytettiin? Mitkä olivat sen heikkoudet. Työ käsittelee perinteistä ohjelmistotuotantomallia, eli vesiputousmallia. Iteratiivista 
-mallia, esimerkkinä tässä Rational Unified Process ja spiraalimalli sekä viimeiseksi ketteriä menetelmiä, tässä esimerkkinä Scrum. Suomalainen toteaa,
+mallia, esimerkkinä tässä Rational Unified Process ja spiraalimalli sekä viimeiseksi ketteriä menetelmiä, tässä esimerkkinä Scrum. 
+
+Suomalainen toteaa,
 että menetelmät ovat lähteneet liikkeelle 1950-luvun lopulta, jolloin vallitsi ns. Software Crisis, kun ohjelmistojen tekeminen epäonnistui. Tähän vastauksena 
 Winston Royce kehitti Vesiputousmallina tunnetun menetelmän. Suomalainen toteaa, että Roycen suositus tosin oli kaksivaiheinen vesiputous, jossa tehdään ensin prototyyppi. 
 Vesiputousmallissa tehtiin kattava suunnittelu ennen toteutusta, Suomalaisen mukaan perinteisen insinööritieteiden menetelmien mukaisesti. Mallin ongelma oli kuitenkin se,
