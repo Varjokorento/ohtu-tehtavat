@@ -2,6 +2,8 @@ package ohtu.kivipaperisakset.pelit;
 
 import ohtu.kivipaperisakset.Tuomari;
 import ohtu.kivipaperisakset.tekoalyt.Tekoaly;
+import ohtu.kivipaperisakset.tekoalyt.TekoalyInterface;
+import ohtu.kivipaperisakset.tekoalyt.TekoalyParannettu;
 
 import java.util.Scanner;
 
@@ -9,14 +11,21 @@ public class KPSTekoaly extends KPS {
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    KPSTekoaly() {
+    private TekoalyInterface tekoaly;
 
+    KPSTekoaly(TekoalyInterface tekoalyInterface) {
+        this.tekoaly = tekoalyInterface;
     }
+
+    KPSTekoaly(int muistinkoko) {
+        this.tekoaly = new TekoalyParannettu(muistinkoko);
+    }
+
+
 
     @Override
     public void pelaa() {
         Tuomari tuomari = new Tuomari();
-        Tekoaly tekoaly = new Tekoaly();
 
         System.out.print("Ensimmäisen pelaajan siirto: ");
         String ekanSiirto = scanner.nextLine();
